@@ -17,6 +17,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class testCalendar extends Activity {
 
@@ -32,11 +33,14 @@ public class testCalendar extends Activity {
 
 			@Override
 			public void onClick(View arg0) {
+				TextView textView = (TextView)findViewById(R.id.textView);
 				String[] projection = new String[] { "_id", "displayName" };
 				Uri calendars;
 				Uri events;
 				Uri parsingDuration;
 
+				textView.setText("");
+				
 				if (android.os.Build.VERSION.SDK_INT <= 7) {
 					calendars = Uri.parse("content://calendar/calendars");
 					events = Uri.parse("content://calendar/events");
@@ -86,6 +90,8 @@ public class testCalendar extends Activity {
 						
 						if (title!=null)
 							Log.d(TAG, title);
+							textView.append(title);
+							textView.append("\n");
 					}
 					eventCursor.close();
 				}

@@ -15,4 +15,9 @@
     android:layout_height="wrap_content" 
     android:text="List"
     />
+ <TextView
+ 	android:id="@+id/textView"  
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
+    />   
 </LinearLayout>
